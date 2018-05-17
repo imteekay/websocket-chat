@@ -9,6 +9,7 @@ gem 'puma'
 gem 'sass-rails'
 gem 'redis'
 gem 'bootsnap'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
