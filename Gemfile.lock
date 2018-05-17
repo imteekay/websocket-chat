@@ -43,12 +43,19 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (9.0.0)
+    bcrypt (3.1.12)
     bootsnap (1.3.0)
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (10.0.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    devise (4.4.3)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 6.0)
+      responders
+      warden (~> 1.2.3)
     erubi (1.7.1)
     ffi (1.9.23)
     globalid (0.4.1)
@@ -75,6 +82,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    orm_adapter (0.5.0)
     puma (3.11.4)
     rack (2.0.5)
     rack-test (1.0.0)
@@ -108,6 +116,9 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     redis (4.0.1)
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     ruby_dep (1.5.0)
     sass (3.5.6)
       sass-listen (~> 4.0.0)
@@ -138,6 +149,8 @@ GEM
     tilt (2.0.8)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    warden (1.2.7)
+      rack (>= 1.0)
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -148,6 +161,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   byebug
+  devise
   puma
   rails (~> 5.2.0)
   redis
