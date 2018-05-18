@@ -1,0 +1,9 @@
+<h1><%= "Comece o chat com #{@other_user.username}" %></h1>
+
+<%= form_for Message.new, url: conversations_path, authenticity_token: true do |f| %>
+  <%= f.label :your_message %>:
+  <%= f.text_area :content, class: "form-control", data: { textarea: "message" } %>
+
+  <%= f.hidden_field :user_id, value: params[:user_id] %>
+  <%= f.submit "send", class: "btn btn-primary", data: { send: "message" } %>
+<% end %>
