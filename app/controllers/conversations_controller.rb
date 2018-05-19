@@ -7,6 +7,8 @@ class ConversationsController < ApplicationController
 
   def new
     @other_user = User.find(params[:other_user_id])
+    conversation = Conversation.between(current_user, @other_user).first
+    redirect_to conversation_path(conversation) if conversation.present?
   end
 
   def create
