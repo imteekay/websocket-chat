@@ -6,7 +6,9 @@ class ConversationsController < ApplicationController
   end
 
   def new
-    @other_user = User.find(params[:other_user_id])
+    load_other_user
+    load_conversation
+    redirect_to_conversation if @conversation.present?
   end
 
   def create
@@ -20,6 +22,18 @@ class ConversationsController < ApplicationController
   end
 
   private
+
+  def load_other_user
+    @other_user = User.find(params[:other_user_id])
+  end
+
+  def load_conversation
+    @conversation = Conversation.between(current_user, @other_user).first
+  end
+
+  def redirect_to_conversation
+    redirect_to conversation_path(@conversation)
+  end
 
   def message_params
     params.require(:message)
