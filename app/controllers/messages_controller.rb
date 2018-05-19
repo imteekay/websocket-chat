@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
       ActionCable.server.broadcast 'messages',
         message: message.content,
         user: message.user.username
-      head :ok
+      head :created
     else
       redirect_to conversation_path(params[:conversation_id])
     end
