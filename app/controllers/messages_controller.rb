@@ -5,10 +5,8 @@ class MessagesController < ApplicationController
     message = current_user.messages.build(message_params)
 
     if message.save
-      ActionCable.server.broadcast 'messages',
-        message: message.content,
-        user: message.user.username
-      head :ok
+      BroadcastMessage.call(message)
+      head :created
     else
       redirect_to conversation_path(params[:conversation_id])
     end
