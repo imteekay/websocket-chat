@@ -8,6 +8,7 @@ class ConversationsController < ApplicationController
   def new
     load_other_user
     load_conversation
+    redirect_to_home_for_same_user
     redirect_to_conversation if @conversation.present?
   end
 
@@ -33,6 +34,10 @@ class ConversationsController < ApplicationController
 
   def redirect_to_conversation
     redirect_to conversation_path(@conversation)
+  end
+
+  def redirect_to_home_for_same_user
+    redirect_to root_path if current_user == @other_user
   end
 
   def message_params
