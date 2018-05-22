@@ -1,0 +1,3 @@
+<% @users.each do |user| %>
+  <p><%= link_to "Chat com #{user.username}", new_conversation_path(other_user_id: user.id) %></p>
+<% end %>
