@@ -1,3 +1,11 @@
 <% @users.each do |user| %>
-  <p><%= link_to "Chat com #{user.username}", new_conversation_path(other_user_id: user.id) %></p>
+  <div class="list-group">
+    <%= link_to new_conversation_path(other_user_id: user.id), class: 'list-group-item list-group-item-action flex-column align-items-start' do %>
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><%= "Chat with #{user.username}" %></h5>
+      </div>
+      <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+      <small>Donec id elit non mi porta.</small>
+    <% end %>
+  </div>
 <% end %>
